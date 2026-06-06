@@ -1257,6 +1257,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateCartBadge();
   updateWishlistBadge();
   initGlobal3D();
+  initCanvasBackground();
 
   const path = window.location.pathname;
   const page = path.split('/').pop() || 'index.html';
@@ -1277,3 +1278,126 @@ document.addEventListener('DOMContentLoaded', () => {
     initCollections();
   }
 });
+
+/* ============================================================
+   INTERACTIVE CANVAS BACKGROUND
+   ============================================================ */
+
+function initCanvasBackground() {
+  const canvas = document.createElement('canvas');
+  canvas.id = 'bg-canvas';
+  canvas.style.position = 'fixed';
+  canvas.style.top = '0';
+  canvas.style.left = '0';
+  canvas.style.width = '100vw';
+  canvas.style.height = '100vh';
+  canvas.style.zIndex = '-1';
+  canvas.style.pointerEvents = 'none';
+  document.body.prepend(canvas);
+
+  const ctx = canvas.getContext('2d');
+  let width, height;
+  let particles = [];
+  
+  let mouse = { x: -1000, y: -1000 };
+  let ripples = [];
+
+  function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+    initParticles();
+  }
+
+  window.addEventListener('resize', resize);
+  window.addEventListener('mousemove', e => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  });
+  window.addEventListener('click', e => {
+    ripples.push({ x: e.clientX, y: e.clientY, radius: 0, life: 1 });
+  });
+
+  class Particle {
+    constructor() {
+      this.baseX = Math.random() * width;
+      this.baseY = Math.random() * height;
+      this.x = this.baseX;
+      this.y = this.baseY;
+      this.size = Math.random() * 1.5 + 0.5;
+      this.color = document.documentElement.dataset.theme === 'dark' ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.06)';
+    }
+    update() {
+      // Mouse repulsion
+      const dx = mouse.x - this.x;
+      const dy = mouse.y - this.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      
+      let forceX = 0;
+      let forceY = 0;
+
+      if (dist < 100) {
+        const force = (100 - dist) / 100;
+        forceX -= (dx / dist) * force * 5;
+        forceY -= (dy / dist) * force * 5;
+      }
+
+      // Ripple repulsion
+      for (let r of ripples) {
+        const rdx = r.x - this.baseX;
+        const rdy = r.y - this.baseY;
+        const rdist = Math.sqrt(rdx * rdx + rdy * rdy);
+        // If particle is near the expanding ripple ring
+        if (Math.abs(rdist - r.radius) < 20) {
+          const rForce = r.life * 15;
+          forceX += (rdx / rdist) * rForce;
+          forceY += (rdy / rdist) * rForce;
+        }
+      }
+
+      // Spring back to base
+      this.x += (this.baseX + forceX - this.x) * 0.1;
+      this.y += (this.baseY + forceY - this.y) * 0.1;
+    }
+    draw() {
+      ctx.fillStyle = this.color;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  function initParticles() {
+    particles = [];
+    const count = Math.floor((width * height) / 10000); // 1 per 100x100 area
+    for (let i = 0; i < count; i++) {
+      particles.push(new Particle());
+    }
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, width, height);
+
+    // Update ripples
+    for (let i = ripples.length - 1; i >= 0; i--) {
+      let r = ripples[i];
+      r.radius += 8;
+      r.life -= 0.02;
+      if (r.life <= 0) ripples.splice(i, 1);
+    }
+
+    // Update theme colors periodically
+    const isDark = document.documentElement.dataset.theme === 'dark';
+    const pColor = isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.06)';
+
+    particles.forEach(p => {
+      p.color = pColor;
+      p.update();
+      p.draw();
+    });
+
+    requestAnimationFrame(animate);
+  }
+
+  resize();
+  animate();
+}
