@@ -1324,10 +1324,11 @@ function initCanvasBackground() {
       this.x = this.baseX;
       this.y = this.baseY;
       this.size = Math.random() * 1.5 + 0.5;
-      this.color = document.documentElement.dataset.theme === 'dark' ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.06)';
+      this.color = document.documentElement.dataset.theme === 'dark' ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.1)';
+      this.glowing = 0;
     }
     update() {
-      // Mouse repulsion
+      // Mouse repulsion (Scatter)
       const dx = mouse.x - this.x;
       const dy = mouse.y - this.y;
       const dist = Math.sqrt(dx * dx + dy * dy);
@@ -1335,34 +1336,47 @@ function initCanvasBackground() {
       let forceX = 0;
       let forceY = 0;
 
-      if (dist < 100) {
-        const force = (100 - dist) / 100;
-        forceX -= (dx / dist) * force * 5;
-        forceY -= (dy / dist) * force * 5;
+      if (dist < 150) { // Increased scatter radius
+        const force = (150 - dist) / 150;
+        forceX -= (dx / dist) * force * 15; // Increased scatter force
+        forceY -= (dy / dist) * force * 15;
       }
 
-      // Ripple repulsion
+      // Ripple repulsion and glowing
       for (let r of ripples) {
         const rdx = r.x - this.baseX;
         const rdy = r.y - this.baseY;
         const rdist = Math.sqrt(rdx * rdx + rdy * rdy);
         // If particle is near the expanding ripple ring
-        if (Math.abs(rdist - r.radius) < 20) {
-          const rForce = r.life * 15;
+        if (Math.abs(rdist - r.radius) < 30) {
+          const rForce = r.life * 25;
           forceX += (rdx / rdist) * rForce;
           forceY += (rdy / rdist) * rForce;
+          this.glowing = 1.0; // Trigger glow
         }
       }
 
       // Spring back to base
-      this.x += (this.baseX + forceX - this.x) * 0.1;
-      this.y += (this.baseY + forceY - this.y) * 0.1;
+      this.x += (this.baseX + forceX - this.x) * 0.08;
+      this.y += (this.baseY + forceY - this.y) * 0.08;
     }
     draw() {
-      ctx.fillStyle = this.color;
+      if (this.glowing > 0) {
+        ctx.shadowBlur = 12 * this.glowing;
+        const isDark = document.documentElement.dataset.theme === 'dark';
+        const glowColor = isDark ? '#D4AF37' : '#C9A84C'; // Gold accent
+        ctx.shadowColor = glowColor;
+        ctx.fillStyle = glowColor;
+        this.glowing -= 0.015; // Fade out
+      } else {
+        ctx.shadowBlur = 0;
+        ctx.fillStyle = this.color;
+      }
+      
       ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.arc(this.x, this.y, this.size + (this.glowing * 1.5), 0, Math.PI * 2);
       ctx.fill();
+      ctx.shadowBlur = 0;
     }
   }
 
