@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LUMINO Support — FAQs, shipping information, returns, warranty, and contact options.">
+  <title>Support — LUMINO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>(function(){const t=localStorage.getItem('lumino-theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;})();</script>
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announce-bar" id="announce-bar"><div class="announce-bar__content">Free shipping on orders above ₹5,000 &nbsp;·&nbsp; 1-Year warranty on all products</div><button class="announce-bar__close" id="announce-close"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+
+  <!-- Navbar -->
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="navbar__inner">
+        <a href="index.html" class="logo"><span class="logo__mark"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9.5" stroke="currentColor" stroke-width="1.2"/><circle cx="11" cy="11" r="3" fill="currentColor"/></svg></span><span class="logo__name">Lumino</span></a>
+        <div class="nav-links"><a href="index.html" class="nav-link">Home</a><a href="shop.html" class="nav-link">Shop</a><a href="collections.html" class="nav-link">Collections</a><a href="about.html" class="nav-link">About</a><a href="support.html" class="nav-link active">Support</a></div>
+        <div class="nav-actions">
+          <button class="nav-icon-btn" id="search-btn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+          <button class="nav-icon-btn" id="cart-btn"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="nav-badge cart-badge"></span></button>
+          <button class="nav-icon-btn" id="theme-toggle"><svg class="icon-sun" viewBox="0 0 24 24" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg><svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+          <button class="nav-icon-btn nav-hamburger" id="nav-hamburger"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobile-nav"><div class="mobile-nav__overlay" id="mobile-nav-overlay"></div><div class="mobile-nav__panel"><div class="mobile-nav__header"><span class="logo__name">Lumino</span><button class="nav-icon-btn" id="mobile-nav-close"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div><a href="index.html" class="mobile-nav__link">Home</a><a href="shop.html" class="mobile-nav__link">Shop</a><a href="collections.html" class="mobile-nav__link">Collections</a><a href="about.html" class="mobile-nav__link">About</a><a href="support.html" class="mobile-nav__link active">Support</a></div></div>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay" id="search-overlay"><div class="search-overlay__header"><span class="search-overlay__logo">Lumino</span><div class="search-overlay__input-wrap"><svg class="search-overlay__icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" class="search-overlay__input" id="search-input" placeholder="Search products..." autocomplete="off"></div><button class="btn btn-ghost btn-sm" id="search-close">Close</button></div><div class="search-overlay__body" id="search-results"></div></div>
+
+  <!-- Cart Drawer -->
+  <div class="cart-drawer" id="cart-drawer"><div class="cart-drawer__overlay" id="cart-drawer-overlay"></div><div class="cart-drawer__panel"><div class="cart-drawer__header"><span class="cart-drawer__title">Cart <span class="cart-drawer__count" id="cart-drawer-count">(0)</span></span><button class="nav-icon-btn" id="cart-drawer-close"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div><div class="cart-drawer__body" id="cart-drawer-body"></div><div class="cart-drawer__footer" id="cart-drawer-footer" style="display:none"><div class="cart-drawer__subtotal"><span>Subtotal</span><span id="cart-drawer-subtotal">₹0</span></div><a href="cart.html" class="btn btn-outline btn-full">View Cart</a><a href="checkout.html" class="btn btn-primary btn-full">Checkout</a></div></div></div>
+
+  <!-- Page Top -->
+  <div class="page-top"><div class="container"><div class="breadcrumb"><a href="index.html" class="breadcrumb__item">Home</a><span class="breadcrumb__sep">/</span><span class="breadcrumb__item current">Support</span></div></div></div>
+
+  <main>
+    <!-- Support Hero -->
+    <div class="section" style="border-bottom:1px solid var(--c-border)">
+      <div class="container">
+        <span class="section-eyebrow">We're Here to Help</span>
+        <h1 class="section-title" style="font-size:clamp(2rem,5vw,3rem);max-width:480px">Help Centre</h1>
+        <p class="section-desc" style="max-width:500px">Browse frequently asked questions, learn about our policies, or reach our team directly. We respond within 4 hours on business days.</p>
+      </div>
+    </div>
+
+    <div class="container" style="padding-top:var(--sp-12);padding-bottom:var(--sp-16)">
+      <div class="support-layout">
+
+        <!-- FAQs -->
+        <div class="support-main">
+          <div class="faq-group">
+            <div class="faq-group__title">Orders & Shipping</div>
+
+            <div class="faq-item">
+              <button class="faq-trigger">How long does delivery take?<svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+              <div class="faq-body">
+                <p>Standard delivery takes 3–5 business days. Express delivery (1–2 business days) is available for ₹299 at checkout. Metro cities (Mumbai, Delhi, Bengaluru, Chennai, Hyderabad) typically receive orders within 2 days on standard shipping.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-trigger">When do I get free shipping?<svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+              <div class="faq-body">
+                <p>Free standard shipping applies automatically on all orders above ₹5,000. There's no coupon needed — it's calculated at checkout.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-trigger">Can I track my order?<svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+              <div class="faq-body">
+                <p>Yes. Once your order is dispatched, you'll receive an SMS and email with a tracking link. You can track your shipment in real time from our warehouse to your door.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-trigger">Do you ship outside India?<svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+              <div class="faq-body">
+                <p>At this time we ship within India only. International shipping is on our roadmap and we expect to launch it in early 2025. Sign up to our newsletter to be notified.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-group">
+            <div class="faq-group__title">Returns & Refunds</div>
+
+            <div class="faq-item">
+              <button class="faq-trigger">How do I return a product?<svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+              <div class="faq-body">
+                <p>Contact our support team at support@lumino.in or use the contact form below within 30 days of delivery. We will arrange a free pickup for defective products. For change-of-mind returns, you will be responsible for return shipping costs (₹149 flat).</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-trigger">How long does a refund take?<svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+              <div class="faq-body">
+                <p>Once we receive and inspect the returned item (1–2 business days), your refund will be processed within 5–7 business days to your original payment method. UPI refunds typically arrive within 24 hours.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-trigger">What if my product arrives damaged?<svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+              <div class="faq-body">
+                <p>We're sorry to hear that. Take a photo of the damaged packaging and product and email it to us within 48 hours of delivery. We will dispatch a replacement or issue a full refund — your choice.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-group">
+            <div class="faq-group__title">Products & Warranty</div>
+
+            <div class="faq-item">
+              <button class="faq-trigger">What warranty comes with Lumino products?<svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+              <div class="faq-body">
+                <p>Every product includes a 1-year manufacturer warranty against defects in materials and workmanship. Extended 2-year coverage is available for purchase at checkout for an additional fee.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-trigger">Are the products genuine?<svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+              <div class="faq-body">
+                <p>Absolutely. We source all products directly from authorised manufacturers or their official distribution channels. Every product passes through our quality verification process before being listed.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-trigger">Can I get a GST invoice?<svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+              <div class="faq-body">
+                <p>Yes. Select the GST Invoice option at checkout and enter your GSTIN. We will email a proper tax invoice within 24 hours of order confirmation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Sidebar -->
+        <aside class="support-sidebar">
+          <div class="contact-card">
+            <div class="contact-card__title">Contact Us</div>
+            <div class="contact-card__methods">
+              <div class="contact-card__method">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <div>
+                  <div class="contact-card__method-label">Email</div>
+                  <div class="contact-card__method-value">support@lumino.in</div>
+                  <div class="contact-card__method-note">Response within 4 hours</div>
+                </div>
+              </div>
+              <div class="contact-card__method">
+                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <div>
+                  <div class="contact-card__method-label">Phone</div>
+                  <div class="contact-card__method-value">1800-123-LUMINO</div>
+                  <div class="contact-card__method-note">Mon–Sat, 9AM–9PM IST</div>
+                </div>
+              </div>
+            </div>
+
+            <form class="contact-form" id="contact-form" novalidate>
+              <div class="form-field">
+                <label class="form-label" for="cf-name">Your name</label>
+                <input type="text" class="form-input" id="cf-name" placeholder="Full name" required>
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="cf-email">Email address</label>
+                <input type="email" class="form-input" id="cf-email" placeholder="name@example.com" required>
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="cf-subject">Subject</label>
+                <select class="form-input select" id="cf-subject">
+                  <option>Order enquiry</option>
+                  <option>Return request</option>
+                  <option>Warranty claim</option>
+                  <option>Product question</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="cf-msg">Message</label>
+                <textarea class="form-input form-textarea" id="cf-msg" placeholder="Describe your issue or question..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+            </form>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__main">
+        <div class="footer__brand"><a href="index.html" class="logo"><span class="logo__mark"><svg width="20" height="20" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9.5" stroke="currentColor" stroke-width="1.2"/><circle cx="11" cy="11" r="3" fill="currentColor"/></svg></span><span class="logo__name">Lumino</span></a><p class="footer__brand-desc">Precision electronics for people who care about what they own.</p></div>
+        <div><div class="footer__col-title">Shop</div><div class="footer__links"><a href="shop.html" class="footer__link">All Products</a><a href="collections.html" class="footer__link">Collections</a></div></div>
+        <div><div class="footer__col-title">Company</div><div class="footer__links"><a href="about.html" class="footer__link">About</a></div></div>
+        <div><div class="footer__col-title">Support</div><div class="footer__links"><a href="support.html" class="footer__link">Help Centre</a><a href="support.html" class="footer__link">Returns</a></div></div>
+      </div>
+      <div class="footer__bottom"><div class="footer__copy">© 2024 Lumino Technologies Pvt. Ltd.</div></div>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toast-container"></div>
+  <script src="app.js"></script>
+  <script>
+    // Contact form handler
+    document.getElementById('contact-form')?.addEventListener('submit', e => {
+      e.preventDefault();
+      const btn = e.target.querySelector('[type="submit"]');
+      btn.textContent = 'Message Sent';
+      btn.disabled = true;
+      showToast('We received your message and will respond shortly.');
+    });
+  </script>
+</body>
+</html>

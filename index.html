@@ -1,108 +1,469 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="LUMINO — Premium electronics and gadgets. Curated selection of audio, wearables, mobile devices, and accessories.">
-  <title>LUMINO — Premium Electronics</title>
+  <meta name="description" content="LUMINO — Premium electronics and gadgets. Precision tech, designed to belong. Shop audio, wearables, mobile, and desk accessories.">
+  <title>LUMINO — Precision Tech, Designed to Belong</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script>
+    (function(){const t=localStorage.getItem('lumino-theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;})();
+  </script>
 </head>
-<body class="page-body">
+<body>
 
-  <!-- Navbar -->
-  <nav class="navbar" id="navbar">
-    <div class="navbar__logo">
-      <a href="index.html">LUMINO</a>
+  <!-- Announcement Bar -->
+  <div class="announce-bar" id="announce-bar">
+    <div class="announce-bar__content">
+      Free shipping on orders above ₹5,000 &nbsp;·&nbsp; 1-Year warranty on all products
     </div>
-    <div class="navbar__links">
-      <a href="shop.html">Shop</a>
-      <a href="shop.html">Collections</a>
-      <a href="#about">About</a>
+    <button class="announce-bar__close" id="announce-close" aria-label="Dismiss">
+      <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+
+  <!-- Site Header / Navbar -->
+  <header class="site-header">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="navbar__inner">
+
+        <!-- Logo -->
+        <a href="index.html" class="logo" aria-label="Lumino home">
+          <span class="logo__mark">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <circle cx="11" cy="11" r="9.5" stroke="currentColor" stroke-width="1.2"/>
+              <circle cx="11" cy="11" r="3" fill="currentColor"/>
+            </svg>
+          </span>
+          <span class="logo__name">Lumino</span>
+        </a>
+
+        <!-- Nav Links -->
+        <div class="nav-links">
+          <a href="index.html" class="nav-link active">Home</a>
+          <a href="shop.html" class="nav-link">Shop</a>
+          <a href="collections.html" class="nav-link">Collections</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="support.html" class="nav-link">Support</a>
+        </div>
+
+        <!-- Actions -->
+        <div class="nav-actions">
+          <button class="nav-icon-btn" id="search-btn" aria-label="Search">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </button>
+          <button class="nav-icon-btn" aria-label="Wishlist">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            <span class="nav-badge wishlist-badge"></span>
+          </button>
+          <button class="nav-icon-btn" id="cart-btn" aria-label="Shopping cart">
+            <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            <span class="nav-badge cart-badge"></span>
+          </button>
+          <button class="nav-icon-btn" id="theme-toggle" aria-label="Toggle theme">
+            <svg class="icon-sun" viewBox="0 0 24 24" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <button class="nav-icon-btn nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+            <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobile-nav">
+    <div class="mobile-nav__overlay" id="mobile-nav-overlay"></div>
+    <div class="mobile-nav__panel">
+      <div class="mobile-nav__header">
+        <span class="logo__name">Lumino</span>
+        <button class="nav-icon-btn" id="mobile-nav-close" aria-label="Close menu">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <a href="index.html" class="mobile-nav__link active">Home</a>
+      <a href="shop.html" class="mobile-nav__link">Shop</a>
+      <a href="collections.html" class="mobile-nav__link">Collections</a>
+      <a href="about.html" class="mobile-nav__link">About</a>
+      <a href="support.html" class="mobile-nav__link">Support</a>
+      <div class="mobile-nav__divider"></div>
+      <a href="cart.html" class="mobile-nav__link">Cart</a>
     </div>
-    <div class="navbar__icons">
-      <button class="navbar__icon" id="search-btn" aria-label="Search">
-        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      </button>
-      <a href="cart.html" class="navbar__icon" aria-label="Cart">
-        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-        <span class="cart-dot" id="cart-dot"></span>
-      </a>
-    </div>
-  </nav>
+  </div>
 
   <!-- Search Overlay -->
-  <div class="search-overlay" id="search-overlay">
-    <button class="search-overlay__close">CLOSE</button>
-    <div class="search-overlay__inner">
-      <input type="text" class="search-overlay__input" placeholder="Search products...">
-      <div class="search-results"></div>
+  <div class="search-overlay" id="search-overlay" role="dialog" aria-label="Search">
+    <div class="search-overlay__header">
+      <span class="search-overlay__logo">Lumino</span>
+      <div class="search-overlay__input-wrap">
+        <svg class="search-overlay__icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="search-overlay__input" id="search-input" placeholder="Search products, categories..." autocomplete="off">
+      </div>
+      <button class="btn btn-ghost btn-sm" id="search-close">Close</button>
+    </div>
+    <div class="search-overlay__body" id="search-results"></div>
+  </div>
+
+  <!-- Cart Drawer -->
+  <div class="cart-drawer" id="cart-drawer" role="dialog" aria-label="Shopping cart">
+    <div class="cart-drawer__overlay" id="cart-drawer-overlay"></div>
+    <div class="cart-drawer__panel">
+      <div class="cart-drawer__header">
+        <span class="cart-drawer__title">Cart <span class="cart-drawer__count" id="cart-drawer-count">(0)</span></span>
+        <button class="nav-icon-btn" id="cart-drawer-close" aria-label="Close cart">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="cart-drawer__body" id="cart-drawer-body"></div>
+      <div class="cart-drawer__footer" id="cart-drawer-footer" style="display:none;">
+        <div class="cart-drawer__subtotal">
+          <span class="cart-drawer__subtotal-label">Subtotal</span>
+          <span class="cart-drawer__subtotal-value" id="cart-drawer-subtotal">₹0</span>
+        </div>
+        <div id="cart-drawer-ship-msg" class="cart-drawer__ship-msg"></div>
+        <a href="cart.html" class="btn btn-outline btn-full">View Cart</a>
+        <a href="checkout.html" class="btn btn-primary btn-full">Checkout</a>
+      </div>
     </div>
   </div>
 
-  <!-- Hero -->
-  <section class="hero" id="hero">
-    <div class="hero__eyebrow">PREMIUM ELECTRONICS — EST. 2024</div>
-    <h1 class="hero__headline">Precision-crafted technology for those who <strong>demand excellence</strong></h1>
-    <p class="hero__desc">A curated selection of audio, wearables, and devices — each chosen for build quality, performance, and design restraint.</p>
-    <div class="hero__actions">
-      <a href="shop.html" class="btn-gold">SHOP NOW</a>
-      <a href="shop.html" class="btn-ghost">VIEW COLLECTIONS &rarr;</a>
-    </div>
-    <div class="hero__metrics">
-      <div class="hero__metric">
-        <div class="hero__metric-value">500+</div>
-        <div class="hero__metric-label">Products</div>
-      </div>
-      <div class="hero__metric">
-        <div class="hero__metric-value">50K</div>
-        <div class="hero__metric-label">Customers</div>
-      </div>
-      <div class="hero__metric">
-        <div class="hero__metric-value">4.9/5</div>
-        <div class="hero__metric-label">Rating</div>
-      </div>
-    </div>
-  </section>
+  <!-- ====================================================
+       MAIN CONTENT
+       ==================================================== -->
+  <main>
 
-  <!-- Featured Products -->
-  <section class="section" id="featured">
-    <div class="section-label" style="margin-bottom: 24px;">FEATURED PRODUCTS</div>
-    <div class="filter-row">
-      <button class="filter-btn active" data-category="ALL">All</button>
-      <button class="filter-btn" data-category="Audio">Audio</button>
-      <button class="filter-btn" data-category="Wearables">Wearables</button>
-      <button class="filter-btn" data-category="Mobile">Mobile</button>
-      <button class="filter-btn" data-category="Accessories">Accessories</button>
-    </div>
-    <div class="product-grid" id="featured-grid"></div>
-  </section>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero__inner">
 
-  <!-- Promise Strip -->
-  <div class="promise-strip">
-    <div class="promise-cell">
-      <div class="promise-cell__label">Delivery</div>
-      <div class="promise-cell__text">Express shipping on all orders, with real-time tracking from warehouse to doorstep.</div>
+          <!-- Text -->
+          <div class="hero__text">
+            <span class="hero__eyebrow">Premium Electronics — Est. 2024</span>
+            <h1 class="hero__headline">
+              Precision tech,<br>
+              designed to <em>belong.</em>
+            </h1>
+            <p class="hero__desc">
+              A curated selection of audio, wearables, and devices — each chosen for build quality, performance, and design restraint.
+            </p>
+            <div class="hero__actions">
+              <a href="shop.html" class="btn btn-primary btn-lg">Shop Now</a>
+              <a href="collections.html" class="btn btn-outline btn-lg">View Collections</a>
+            </div>
+            <!-- Stats -->
+            <div class="hero__stats">
+              <div class="hero__stat">
+                <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <div class="hero__stat-text">
+                  <strong>50K+</strong>
+                  <span>Customers</span>
+                </div>
+              </div>
+              <div class="hero__stat">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <div class="hero__stat-text">
+                  <strong>4.8/5</strong>
+                  <span>Avg. Rating</span>
+                </div>
+              </div>
+              <div class="hero__stat">
+                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <div class="hero__stat-text">
+                  <strong>1-Year</strong>
+                  <span>Warranty</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Visual -->
+          <div class="hero__visual">
+            <div class="hero__product-frame">
+              <!-- Lumino X1 Hero Visual -->
+              <svg class="hero-product-svg" viewBox="0 0 200 380" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Phone body -->
+                <rect x="28" y="12" width="144" height="280" rx="22" ry="22" stroke-width="1.2"/>
+                <!-- Screen -->
+                <rect x="36" y="24" width="128" height="250" rx="14" ry="14" stroke-width="0.9"/>
+                <!-- Pill camera -->
+                <rect x="80" y="20" width="40" height="9" rx="4.5" stroke-width="0.8"/>
+                <!-- Home indicator -->
+                <rect x="80" y="304" width="40" height="5" rx="2.5" stroke-width="0.8"/>
+                <!-- Buttons right -->
+                <rect x="172" y="80" width="5" height="30" rx="2.5" stroke-width="0.8"/>
+                <!-- Buttons left -->
+                <rect x="23" y="76" width="5" height="20" rx="2.5" stroke-width="0.8"/>
+                <rect x="23" y="106" width="5" height="20" rx="2.5" stroke-width="0.8"/>
+                <!-- Screen UI lines -->
+                <line x1="56" y1="58" x2="144" y2="58" stroke-width="0.6"/>
+                <rect x="56" y="72" width="50" height="40" rx="6" stroke-width="0.7"/>
+                <rect x="114" y="72" width="30" height="40" rx="6" stroke-width="0.7"/>
+                <line x1="56" y1="124" x2="120" y2="124" stroke-width="0.7"/>
+                <line x1="56" y1="138" x2="100" y2="138" stroke-width="0.6"/>
+                <rect x="56" y="154" width="88" height="50" rx="8" stroke-width="0.7"/>
+                <line x1="56" y1="220" x2="144" y2="220" stroke-width="0.5"/>
+                <line x1="56" y1="232" x2="130" y2="232" stroke-width="0.5"/>
+                <!-- Camera system -->
+                <circle cx="44" cy="52" r="3.5" stroke-width="0.7"/>
+                <circle cx="44" cy="44" r="1.5" stroke-width="0.7"/>
+              </svg>
+              <div class="hero__product-label">
+                <span class="hero__product-label-name">Lumino X1 Flagship</span>
+                <span class="hero__product-label-price">₹89,999</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header--split">
+          <div>
+            <span class="section-eyebrow">Handpicked for You</span>
+            <h2 class="section-title">Featured Products</h2>
+          </div>
+          <div class="filter-pills" role="group" aria-label="Filter products">
+            <button class="filter-pill active" data-cat="All">All</button>
+            <button class="filter-pill" data-cat="Audio">Audio</button>
+            <button class="filter-pill" data-cat="Wearables">Wearables</button>
+            <button class="filter-pill" data-cat="Mobile">Mobile</button>
+            <button class="filter-pill" data-cat="Accessories">Accessories</button>
+          </div>
+        </div>
+        <div class="products-grid" id="featured-grid"></div>
+        <div style="text-align:center;margin-top:var(--sp-10)">
+          <a href="shop.html" class="btn btn-outline btn-lg">View All Products</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Collections -->
+    <section class="section" style="background:var(--c-bg-alt);border-top:1px solid var(--c-border);border-bottom:1px solid var(--c-border)">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Shop by Story</span>
+          <h2 class="section-title">Curated Collections</h2>
+          <p class="section-desc">Thoughtfully grouped to match how you live, work, and listen.</p>
+        </div>
+        <div class="collections-grid">
+          <a href="collections.html" class="collection-card">
+            <div class="collection-card__bg">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <div class="collection-card__content">
+              <div class="collection-card__label">Collection</div>
+              <div class="collection-card__title">Desk Setup Essentials</div>
+              <div class="collection-card__sub">5 products curated</div>
+            </div>
+          </a>
+          <a href="collections.html" class="collection-card">
+            <div class="collection-card__bg">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+            </div>
+            <div class="collection-card__content">
+              <div class="collection-card__label">Collection</div>
+              <div class="collection-card__title">Audio Elite</div>
+              <div class="collection-card__sub">4 products curated</div>
+            </div>
+          </a>
+          <a href="collections.html" class="collection-card">
+            <div class="collection-card__bg">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/><polyline points="12 9 12 12 13.5 13.5"/><path d="M16.51 17.35l-.35 3.83a2 2 0 0 1-2 1.82H9.83a2 2 0 0 1-2-1.82l-.35-3.83"/></svg>
+            </div>
+            <div class="collection-card__content">
+              <div class="collection-card__label">Collection</div>
+              <div class="collection-card__title">Smart Living</div>
+              <div class="collection-card__sub">2 products curated</div>
+            </div>
+          </a>
+          <a href="collections.html" class="collection-card">
+            <div class="collection-card__bg">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            </div>
+            <div class="collection-card__content">
+              <div class="collection-card__label">Collection</div>
+              <div class="collection-card__title">Travel Tech</div>
+              <div class="collection-card__sub">4 products curated</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Value Strip -->
+    <div class="value-strip">
+      <div class="container">
+        <div class="value-strip__inner">
+          <div class="value-item">
+            <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            <div>
+              <div class="value-item__label">Express Delivery</div>
+              <div class="value-item__desc">Free on orders above ₹5,000. Real-time tracking from warehouse to door.</div>
+            </div>
+          </div>
+          <div class="value-item">
+            <svg viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.6"/></svg>
+            <div>
+              <div class="value-item__label">30-Day Returns</div>
+              <div class="value-item__desc">Hassle-free returns, no questions asked. Return shipping covered by us.</div>
+            </div>
+          </div>
+          <div class="value-item">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <div>
+              <div class="value-item__label">1-Year Warranty</div>
+              <div class="value-item__desc">Every product includes manufacturer warranty. Extended coverage available.</div>
+            </div>
+          </div>
+          <div class="value-item">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <div>
+              <div class="value-item__label">Expert Support</div>
+              <div class="value-item__desc">Dedicated product specialists available Mon–Sat, 9AM–9PM IST.</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="promise-cell">
-      <div class="promise-cell__label">Returns</div>
-      <div class="promise-cell__text">30-day hassle-free returns with no questions asked. We cover return shipping.</div>
-    </div>
-    <div class="promise-cell">
-      <div class="promise-cell__label">Warranty</div>
-      <div class="promise-cell__text">Every product includes a minimum 1-year manufacturer warranty, extendable at checkout.</div>
-    </div>
-  </div>
+
+    <!-- Testimonials -->
+    <section class="section testimonials-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Customer Stories</span>
+          <h2 class="section-title">What People Are Saying</h2>
+        </div>
+        <div class="testimonial-list">
+          <div class="testimonial-item">
+            <div class="testimonial-meta">
+              <div class="testimonial-name">Priya Mehta</div>
+              <div class="testimonial-location">Mumbai, Maharashtra</div>
+              <div class="testimonial-verified">Verified Buyer</div>
+              <div class="testimonial-product">Aura Pro Headphones</div>
+            </div>
+            <blockquote class="testimonial-quote">The Aura Pro headphones have completely changed my listening experience. The build quality is extraordinary — I wore them for a six-hour flight and forgot I had them on.</blockquote>
+          </div>
+          <div class="testimonial-item">
+            <div class="testimonial-meta">
+              <div class="testimonial-name">Rahul Sharma</div>
+              <div class="testimonial-location">New Delhi</div>
+              <div class="testimonial-verified">Verified Buyer</div>
+              <div class="testimonial-product">Lumino X1</div>
+            </div>
+            <blockquote class="testimonial-quote">The X1 is exactly what a flagship phone should be. Surgical in its precision, effortless in daily use, and the camera system rivals anything at twice the price. No hesitation — worth every rupee.</blockquote>
+          </div>
+          <div class="testimonial-item">
+            <div class="testimonial-meta">
+              <div class="testimonial-name">Ananya Krishnan</div>
+              <div class="testimonial-location">Bengaluru, Karnataka</div>
+              <div class="testimonial-verified">Verified Buyer</div>
+              <div class="testimonial-product">ClearView + Desk Speaker</div>
+            </div>
+            <blockquote class="testimonial-quote">My desk setup is finally complete. The ClearView monitor is calibrated to perfection and the Desk Speaker fills the room without overwhelming it. Lumino just gets what premium design means.</blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="section newsletter">
+      <div class="container">
+        <div class="newsletter__inner">
+          <div class="newsletter__text">
+            <h2 class="newsletter__title">Stay tuned to Lumino.</h2>
+            <p class="newsletter__desc">New arrivals, limited drops, and exclusive early access — delivered to your inbox.</p>
+          </div>
+          <form class="newsletter__form" id="newsletter-form" novalidate>
+            <input type="email" class="newsletter__input" placeholder="Your email address" required aria-label="Email for newsletter">
+            <button type="submit" class="btn btn-primary" style="height:48px;border-radius:var(--r-md)">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <!-- Footer -->
-  <footer class="footer" id="about">
-    <div class="footer__logo">LUMINO</div>
-    <div class="footer__copy">2024 Lumino. All rights reserved.</div>
-    <div class="footer__links">
-      <a href="shop.html">Shop</a>
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__main">
+        <div class="footer__brand">
+          <a href="index.html" class="logo">
+            <span class="logo__mark">
+              <svg width="20" height="20" viewBox="0 0 22 22" fill="none">
+                <circle cx="11" cy="11" r="9.5" stroke="currentColor" stroke-width="1.2"/>
+                <circle cx="11" cy="11" r="3" fill="currentColor"/>
+              </svg>
+            </span>
+            <span class="logo__name">Lumino</span>
+          </a>
+          <p class="footer__brand-desc">Precision electronics for people who care about what they own. Minimal design, maximum performance.</p>
+          <div class="footer__socials">
+            <a href="#" class="footer__social" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="footer__social" aria-label="Twitter">
+              <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+            </a>
+            <a href="#" class="footer__social" aria-label="YouTube">
+              <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__col-title">Shop</div>
+          <div class="footer__links">
+            <a href="shop.html" class="footer__link">All Products</a>
+            <a href="collections.html" class="footer__link">Collections</a>
+            <a href="shop.html" class="footer__link">Audio</a>
+            <a href="shop.html" class="footer__link">Wearables</a>
+            <a href="shop.html" class="footer__link">Mobile</a>
+            <a href="shop.html" class="footer__link">Accessories</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__col-title">Company</div>
+          <div class="footer__links">
+            <a href="about.html" class="footer__link">About Lumino</a>
+            <a href="#" class="footer__link">Careers</a>
+            <a href="#" class="footer__link">Press</a>
+            <a href="#" class="footer__link">Blog</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__col-title">Support</div>
+          <div class="footer__links">
+            <a href="support.html" class="footer__link">Help Centre</a>
+            <a href="support.html" class="footer__link">Shipping</a>
+            <a href="support.html" class="footer__link">Returns</a>
+            <a href="support.html" class="footer__link">Warranty</a>
+            <a href="support.html" class="footer__link">FAQs</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__copy">© 2024 Lumino Technologies Pvt. Ltd. All rights reserved.</div>
+        <div class="footer__policy-links">
+          <a href="#" class="footer__policy-link">Privacy Policy</a>
+          <a href="#" class="footer__policy-link">Terms of Service</a>
+          <a href="#" class="footer__policy-link">Cookie Policy</a>
+        </div>
+      </div>
     </div>
   </footer>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
 
   <script src="app.js"></script>
 </body>

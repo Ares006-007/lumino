@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About LUMINO — our story, values, and the thinking behind our curated electronics brand.">
+  <title>About — LUMINO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>(function(){const t=localStorage.getItem('lumino-theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;})();</script>
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announce-bar" id="announce-bar"><div class="announce-bar__content">Free shipping on orders above ₹5,000 &nbsp;·&nbsp; 1-Year warranty on all products</div><button class="announce-bar__close" id="announce-close"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+
+  <!-- Navbar -->
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="navbar__inner">
+        <a href="index.html" class="logo"><span class="logo__mark"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9.5" stroke="currentColor" stroke-width="1.2"/><circle cx="11" cy="11" r="3" fill="currentColor"/></svg></span><span class="logo__name">Lumino</span></a>
+        <div class="nav-links"><a href="index.html" class="nav-link">Home</a><a href="shop.html" class="nav-link">Shop</a><a href="collections.html" class="nav-link">Collections</a><a href="about.html" class="nav-link active">About</a><a href="support.html" class="nav-link">Support</a></div>
+        <div class="nav-actions">
+          <button class="nav-icon-btn" id="search-btn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+          <button class="nav-icon-btn" id="cart-btn"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="nav-badge cart-badge"></span></button>
+          <button class="nav-icon-btn" id="theme-toggle"><svg class="icon-sun" viewBox="0 0 24 24" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg><svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+          <button class="nav-icon-btn nav-hamburger" id="nav-hamburger"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobile-nav"><div class="mobile-nav__overlay" id="mobile-nav-overlay"></div><div class="mobile-nav__panel"><div class="mobile-nav__header"><span class="logo__name">Lumino</span><button class="nav-icon-btn" id="mobile-nav-close"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div><a href="index.html" class="mobile-nav__link">Home</a><a href="shop.html" class="mobile-nav__link">Shop</a><a href="collections.html" class="mobile-nav__link">Collections</a><a href="about.html" class="mobile-nav__link active">About</a><a href="support.html" class="mobile-nav__link">Support</a></div></div>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay" id="search-overlay"><div class="search-overlay__header"><span class="search-overlay__logo">Lumino</span><div class="search-overlay__input-wrap"><svg class="search-overlay__icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" class="search-overlay__input" id="search-input" placeholder="Search products..." autocomplete="off"></div><button class="btn btn-ghost btn-sm" id="search-close">Close</button></div><div class="search-overlay__body" id="search-results"></div></div>
+
+  <!-- Cart Drawer -->
+  <div class="cart-drawer" id="cart-drawer"><div class="cart-drawer__overlay" id="cart-drawer-overlay"></div><div class="cart-drawer__panel"><div class="cart-drawer__header"><span class="cart-drawer__title">Cart <span class="cart-drawer__count" id="cart-drawer-count">(0)</span></span><button class="nav-icon-btn" id="cart-drawer-close"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div><div class="cart-drawer__body" id="cart-drawer-body"></div><div class="cart-drawer__footer" id="cart-drawer-footer" style="display:none"><div class="cart-drawer__subtotal"><span>Subtotal</span><span id="cart-drawer-subtotal">₹0</span></div><a href="cart.html" class="btn btn-outline btn-full">View Cart</a><a href="checkout.html" class="btn btn-primary btn-full">Checkout</a></div></div></div>
+
+  <!-- Page Top -->
+  <div class="page-top"><div class="container"><div class="breadcrumb"><a href="index.html" class="breadcrumb__item">Home</a><span class="breadcrumb__sep">/</span><span class="breadcrumb__item current">About</span></div></div></div>
+
+  <main>
+
+    <!-- About Hero -->
+    <div class="about-hero">
+      <div class="container">
+        <span class="section-eyebrow">Our Story</span>
+        <h1 class="about-hero__title">Built on a simple belief:<br><em>technology should feel as good as it performs.</em></h1>
+      </div>
+    </div>
+
+    <!-- About Content -->
+    <div class="container">
+      <div class="about-content">
+
+        <div class="about-block about-block--lead">
+          <p class="about-lead">Lumino was founded in 2024 by a team of engineers and designers who were frustrated with a market that forced a choice — either sacrifice design for performance, or performance for aesthetics.</p>
+          <p class="about-lead">We decided not to choose. Every product in our catalogue has been selected against a strict set of criteria: build quality, performance benchmarks, repairability, and design restraint. If a product doesn't belong, it doesn't ship.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-grid__item">
+            <div class="about-grid__num">01</div>
+            <h2 class="about-grid__title">Curated with intention</h2>
+            <p class="about-grid__text">We evaluate hundreds of products before adding anything to our catalogue. Our team tests each device against real-world use cases — not spec sheets. Only the best 1% makes the cut.</p>
+          </div>
+          <div class="about-grid__item">
+            <div class="about-grid__num">02</div>
+            <h2 class="about-grid__title">Designed to last</h2>
+            <p class="about-grid__text">We favour aluminium over plastic, sapphire over glass, and software that gets better over time. Products we sell today should still be relevant three years from now.</p>
+          </div>
+          <div class="about-grid__item">
+            <div class="about-grid__num">03</div>
+            <h2 class="about-grid__title">Honest pricing</h2>
+            <p class="about-grid__text">Premium doesn't have to mean overpriced. We work directly with manufacturers to offer fair margins — you pay for quality, not for marketing spend.</p>
+          </div>
+          <div class="about-grid__item">
+            <div class="about-grid__num">04</div>
+            <h2 class="about-grid__title">Support that cares</h2>
+            <p class="about-grid__text">Every Lumino customer gets a dedicated support specialist — not a chatbot. We answer questions before, during, and long after your purchase.</p>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="about-stats">
+          <div class="about-stat">
+            <div class="about-stat__num">50,000+</div>
+            <div class="about-stat__label">Happy customers across India</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat__num">4.8</div>
+            <div class="about-stat__label">Average product rating across catalogue</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat__num">12</div>
+            <div class="about-stat__label">Products — each individually reviewed</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat__num">30-Day</div>
+            <div class="about-stat__label">Return window — no questions asked</div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="about-cta">
+          <h2 class="about-cta__title">Start with what you need.</h2>
+          <p class="about-cta__sub">Browse the full catalogue or discover a curated collection built around your lifestyle.</p>
+          <div class="about-cta__btns">
+            <a href="shop.html" class="btn btn-primary btn-lg">Shop Now</a>
+            <a href="collections.html" class="btn btn-outline btn-lg">View Collections</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__main">
+        <div class="footer__brand"><a href="index.html" class="logo"><span class="logo__mark"><svg width="20" height="20" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9.5" stroke="currentColor" stroke-width="1.2"/><circle cx="11" cy="11" r="3" fill="currentColor"/></svg></span><span class="logo__name">Lumino</span></a><p class="footer__brand-desc">Precision electronics for people who care about what they own.</p></div>
+        <div><div class="footer__col-title">Shop</div><div class="footer__links"><a href="shop.html" class="footer__link">All Products</a><a href="collections.html" class="footer__link">Collections</a></div></div>
+        <div><div class="footer__col-title">Company</div><div class="footer__links"><a href="about.html" class="footer__link">About</a><a href="#" class="footer__link">Careers</a></div></div>
+        <div><div class="footer__col-title">Support</div><div class="footer__links"><a href="support.html" class="footer__link">Help Centre</a><a href="support.html" class="footer__link">Returns</a></div></div>
+      </div>
+      <div class="footer__bottom"><div class="footer__copy">© 2024 Lumino Technologies Pvt. Ltd.</div></div>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toast-container"></div>
+  <script src="app.js"></script>
+</body>
+</html>

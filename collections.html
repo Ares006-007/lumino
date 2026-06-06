@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse LUMINO collections — Desk Setup Essentials, Audio Elite, Smart Living, and Travel Tech.">
+  <title>Collections — LUMINO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>(function(){const t=localStorage.getItem('lumino-theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;})();</script>
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announce-bar" id="announce-bar"><div class="announce-bar__content">Free shipping on orders above ₹5,000 &nbsp;·&nbsp; 1-Year warranty on all products</div><button class="announce-bar__close" id="announce-close"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+
+  <!-- Navbar -->
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="navbar__inner">
+        <a href="index.html" class="logo"><span class="logo__mark"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9.5" stroke="currentColor" stroke-width="1.2"/><circle cx="11" cy="11" r="3" fill="currentColor"/></svg></span><span class="logo__name">Lumino</span></a>
+        <div class="nav-links"><a href="index.html" class="nav-link">Home</a><a href="shop.html" class="nav-link">Shop</a><a href="collections.html" class="nav-link active">Collections</a><a href="about.html" class="nav-link">About</a><a href="support.html" class="nav-link">Support</a></div>
+        <div class="nav-actions">
+          <button class="nav-icon-btn" id="search-btn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+          <button class="nav-icon-btn" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span class="nav-badge wishlist-badge"></span></button>
+          <button class="nav-icon-btn" id="cart-btn"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="nav-badge cart-badge"></span></button>
+          <button class="nav-icon-btn" id="theme-toggle"><svg class="icon-sun" viewBox="0 0 24 24" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg><svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+          <button class="nav-icon-btn nav-hamburger" id="nav-hamburger"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobile-nav"><div class="mobile-nav__overlay" id="mobile-nav-overlay"></div><div class="mobile-nav__panel"><div class="mobile-nav__header"><span class="logo__name">Lumino</span><button class="nav-icon-btn" id="mobile-nav-close"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div><a href="index.html" class="mobile-nav__link">Home</a><a href="shop.html" class="mobile-nav__link">Shop</a><a href="collections.html" class="mobile-nav__link active">Collections</a><a href="about.html" class="mobile-nav__link">About</a><a href="support.html" class="mobile-nav__link">Support</a></div></div>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay" id="search-overlay"><div class="search-overlay__header"><span class="search-overlay__logo">Lumino</span><div class="search-overlay__input-wrap"><svg class="search-overlay__icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" class="search-overlay__input" id="search-input" placeholder="Search products..." autocomplete="off"></div><button class="btn btn-ghost btn-sm" id="search-close">Close</button></div><div class="search-overlay__body" id="search-results"></div></div>
+
+  <!-- Cart Drawer -->
+  <div class="cart-drawer" id="cart-drawer"><div class="cart-drawer__overlay" id="cart-drawer-overlay"></div><div class="cart-drawer__panel"><div class="cart-drawer__header"><span class="cart-drawer__title">Cart <span class="cart-drawer__count" id="cart-drawer-count">(0)</span></span><button class="nav-icon-btn" id="cart-drawer-close"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div><div class="cart-drawer__body" id="cart-drawer-body"></div><div class="cart-drawer__footer" id="cart-drawer-footer" style="display:none"><div class="cart-drawer__subtotal"><span>Subtotal</span><span id="cart-drawer-subtotal">₹0</span></div><a href="cart.html" class="btn btn-outline btn-full">View Cart</a><a href="checkout.html" class="btn btn-primary btn-full">Checkout</a></div></div></div>
+
+  <!-- Page Top -->
+  <div class="page-top">
+    <div class="container"><div class="breadcrumb"><a href="index.html" class="breadcrumb__item">Home</a><span class="breadcrumb__sep">/</span><span class="breadcrumb__item current">Collections</span></div></div>
+  </div>
+
+  <main>
+    <!-- Page Header -->
+    <div class="section" style="border-bottom:1px solid var(--c-border);padding-bottom:var(--sp-12)">
+      <div class="container">
+        <span class="section-eyebrow">Shop by Story</span>
+        <h1 class="section-title" style="font-size:clamp(2rem,5vw,3.5rem);max-width:500px">Curated Collections</h1>
+        <p class="section-desc" style="max-width:480px">Each collection is assembled around a way of living. Whether you are building your dream desk, upgrading your audio setup, or staying connected while travelling — find your collection below.</p>
+      </div>
+    </div>
+
+    <!-- Collection Strips -->
+    <div class="container">
+
+      <!-- Desk Setup -->
+      <div class="collection-strip" id="coll-desk">
+        <div class="collection-strip__header">
+          <div class="collection-strip__info">
+            <span class="section-eyebrow">Collection 01</span>
+            <h2 class="collection-strip__title">Desk Setup Essentials</h2>
+            <p class="collection-strip__desc">The ultimate work-from-anywhere configuration. A monitor, keyboard, webcam, charger, and speaker pair — chosen to maximise focus and minimise clutter.</p>
+          </div>
+          <a href="shop.html" class="btn btn-outline">Shop All</a>
+        </div>
+        <div class="products-grid" id="coll-desk-grid">
+          <!-- filled by JS -->
+        </div>
+      </div>
+
+      <!-- Audio Elite -->
+      <div class="collection-strip" id="coll-audio">
+        <div class="collection-strip__header">
+          <div class="collection-strip__info">
+            <span class="section-eyebrow">Collection 02</span>
+            <h2 class="collection-strip__title">Audio Elite</h2>
+            <p class="collection-strip__desc">Reference-grade listening, no compromises. Headphones, earbuds, and desktop speakers that reveal music as it was intended to be heard.</p>
+          </div>
+          <a href="shop.html" class="btn btn-outline">Shop All</a>
+        </div>
+        <div class="products-grid" id="coll-audio-grid"></div>
+      </div>
+
+      <!-- Smart Living -->
+      <div class="collection-strip" id="coll-smart">
+        <div class="collection-strip__header">
+          <div class="collection-strip__info">
+            <span class="section-eyebrow">Collection 03</span>
+            <h2 class="collection-strip__title">Smart Living</h2>
+            <p class="collection-strip__desc">Intelligent wearables that track health, measure performance, and look refined enough to wear anywhere.</p>
+          </div>
+          <a href="shop.html" class="btn btn-outline">Shop All</a>
+        </div>
+        <div class="products-grid" id="coll-smart-grid"></div>
+      </div>
+
+      <!-- Travel Tech -->
+      <div class="collection-strip" id="coll-travel">
+        <div class="collection-strip__header">
+          <div class="collection-strip__info">
+            <span class="section-eyebrow">Collection 04</span>
+            <h2 class="collection-strip__title">Travel Tech</h2>
+            <p class="collection-strip__desc">Compact, lightweight, and reliable. Everything you need in your bag — from flagship phones and earbuds to universal fast chargers.</p>
+          </div>
+          <a href="shop.html" class="btn btn-outline">Shop All</a>
+        </div>
+        <div class="products-grid" id="coll-travel-grid"></div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__main">
+        <div class="footer__brand"><a href="index.html" class="logo"><span class="logo__mark"><svg width="20" height="20" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9.5" stroke="currentColor" stroke-width="1.2"/><circle cx="11" cy="11" r="3" fill="currentColor"/></svg></span><span class="logo__name">Lumino</span></a><p class="footer__brand-desc">Precision electronics for people who care about what they own.</p></div>
+        <div><div class="footer__col-title">Shop</div><div class="footer__links"><a href="shop.html" class="footer__link">All Products</a><a href="collections.html" class="footer__link">Collections</a></div></div>
+        <div><div class="footer__col-title">Company</div><div class="footer__links"><a href="about.html" class="footer__link">About</a></div></div>
+        <div><div class="footer__col-title">Support</div><div class="footer__links"><a href="support.html" class="footer__link">Help Centre</a></div></div>
+      </div>
+      <div class="footer__bottom"><div class="footer__copy">© 2024 Lumino Technologies Pvt. Ltd.</div></div>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toast-container"></div>
+  <script src="app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const deskIds = [5, 9, 10, 12];
+      const audioIds = [1, 4, 8, 11];
+      const smartIds = [2, 7];
+      const travelIds = [3, 9, 4, 6];
+
+      function renderCollectionGrid(gridId, ids) {
+        const grid = document.getElementById(gridId);
+        if (!grid) return;
+        const products = ids.map(id => PRODUCTS.find(p => p.id === id)).filter(Boolean);
+        grid.innerHTML = products.map(renderProductCard).join('');
+        attachCardListeners(grid);
+      }
+
+      renderCollectionGrid('coll-desk-grid', deskIds);
+      renderCollectionGrid('coll-audio-grid', audioIds);
+      renderCollectionGrid('coll-smart-grid', smartIds);
+      renderCollectionGrid('coll-travel-grid', travelIds);
+    });
+  </script>
+</body>
+</html>

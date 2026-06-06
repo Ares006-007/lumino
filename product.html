@@ -1,64 +1,228 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Product details — LUMINO premium electronics.">
+  <meta name="description" content="Product details — LUMINO premium electronics. Specs, warranty, delivery, and purchase options.">
   <title>Product — LUMINO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script>(function(){const t=localStorage.getItem('lumino-theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;})();</script>
 </head>
-<body class="page-body">
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announce-bar" id="announce-bar">
+    <div class="announce-bar__content">Free shipping on orders above ₹5,000 &nbsp;·&nbsp; 1-Year warranty on all products</div>
+    <button class="announce-bar__close" id="announce-close" aria-label="Dismiss"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  </div>
 
   <!-- Navbar -->
-  <nav class="navbar">
-    <div class="navbar__logo">
-      <a href="index.html">LUMINO</a>
-    </div>
-    <div class="navbar__links">
-      <a href="shop.html">Shop</a>
-      <a href="shop.html">Collections</a>
-      <a href="index.html#about">About</a>
-    </div>
-    <div class="navbar__icons">
-      <button class="navbar__icon" id="search-btn" aria-label="Search">
-        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      </button>
-      <a href="cart.html" class="navbar__icon" aria-label="Cart">
-        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-        <span class="cart-dot"></span>
-      </a>
-    </div>
-  </nav>
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="navbar__inner">
+        <a href="index.html" class="logo" aria-label="Lumino home"><span class="logo__mark"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9.5" stroke="currentColor" stroke-width="1.2"/><circle cx="11" cy="11" r="3" fill="currentColor"/></svg></span><span class="logo__name">Lumino</span></a>
+        <div class="nav-links"><a href="index.html" class="nav-link">Home</a><a href="shop.html" class="nav-link">Shop</a><a href="collections.html" class="nav-link">Collections</a><a href="about.html" class="nav-link">About</a><a href="support.html" class="nav-link">Support</a></div>
+        <div class="nav-actions">
+          <button class="nav-icon-btn" id="search-btn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+          <button class="nav-icon-btn" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span class="nav-badge wishlist-badge"></span></button>
+          <button class="nav-icon-btn" id="cart-btn" aria-label="Cart"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="nav-badge cart-badge"></span></button>
+          <button class="nav-icon-btn" id="theme-toggle"><svg class="icon-sun" viewBox="0 0 24 24" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+          <button class="nav-icon-btn nav-hamburger" id="nav-hamburger"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobile-nav"><div class="mobile-nav__overlay" id="mobile-nav-overlay"></div><div class="mobile-nav__panel"><div class="mobile-nav__header"><span class="logo__name">Lumino</span><button class="nav-icon-btn" id="mobile-nav-close"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div><a href="index.html" class="mobile-nav__link">Home</a><a href="shop.html" class="mobile-nav__link">Shop</a><a href="collections.html" class="mobile-nav__link">Collections</a><a href="about.html" class="mobile-nav__link">About</a><a href="support.html" class="mobile-nav__link">Support</a></div></div>
 
   <!-- Search Overlay -->
-  <div class="search-overlay" id="search-overlay">
-    <button class="search-overlay__close">CLOSE</button>
-    <div class="search-overlay__inner">
-      <input type="text" class="search-overlay__input" placeholder="Search products...">
-      <div class="search-results"></div>
+  <div class="search-overlay" id="search-overlay"><div class="search-overlay__header"><span class="search-overlay__logo">Lumino</span><div class="search-overlay__input-wrap"><svg class="search-overlay__icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" class="search-overlay__input" id="search-input" placeholder="Search products..." autocomplete="off"></div><button class="btn btn-ghost btn-sm" id="search-close">Close</button></div><div class="search-overlay__body" id="search-results"></div></div>
+
+  <!-- Cart Drawer -->
+  <div class="cart-drawer" id="cart-drawer"><div class="cart-drawer__overlay" id="cart-drawer-overlay"></div><div class="cart-drawer__panel"><div class="cart-drawer__header"><span class="cart-drawer__title">Cart <span class="cart-drawer__count" id="cart-drawer-count">(0)</span></span><button class="nav-icon-btn" id="cart-drawer-close"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div><div class="cart-drawer__body" id="cart-drawer-body"></div><div class="cart-drawer__footer" id="cart-drawer-footer" style="display:none"><div class="cart-drawer__subtotal"><span class="cart-drawer__subtotal-label">Subtotal</span><span class="cart-drawer__subtotal-value" id="cart-drawer-subtotal">₹0</span></div><div id="cart-drawer-ship-msg" class="cart-drawer__ship-msg"></div><a href="cart.html" class="btn btn-outline btn-full">View Cart</a><a href="checkout.html" class="btn btn-primary btn-full">Checkout</a></div></div></div>
+
+  <!-- Breadcrumb -->
+  <div class="page-top">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html" class="breadcrumb__item">Home</a>
+        <span class="breadcrumb__sep">/</span>
+        <a href="shop.html" class="breadcrumb__item">Shop</a>
+        <span class="breadcrumb__sep">/</span>
+        <span class="breadcrumb__item current" id="bc-product">Product</span>
+      </div>
     </div>
   </div>
 
-  <!-- Product Detail (populated by JS) -->
-  <div class="product-detail" id="product-detail" style="border-bottom: 1px solid var(--border);"></div>
+  <!-- Sticky ATC -->
+  <div class="sticky-atc" id="sticky-atc" style="display:none;">
+    <div class="container">
+      <div class="sticky-atc__inner">
+        <div class="sticky-atc__info">
+          <span class="sticky-atc__name" id="sticky-name"></span>
+          <span class="sticky-atc__price" id="sticky-price"></span>
+        </div>
+        <button class="btn btn-primary" id="sticky-atc-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-  <!-- You May Also Like -->
-  <section class="also-like">
-    <div class="also-like__title">You may also like</div>
-    <div class="also-like__grid" id="also-like-grid"></div>
-  </section>
+  <main id="product-detail-main">
+    <div class="container">
+      <div class="product-detail-layout">
+
+        <!-- Gallery -->
+        <div class="product-gallery">
+          <div class="product-gallery__main">
+            <div class="product-gallery__main-icon" id="gallery-main-icon"></div>
+          </div>
+          <div class="product-gallery__thumbs">
+            <div class="gallery-thumb active" id="thumb-1"></div>
+            <div class="gallery-thumb" id="thumb-2"></div>
+            <div class="gallery-thumb" id="thumb-3"></div>
+          </div>
+        </div>
+
+        <!-- Product Info -->
+        <div class="product-info">
+          <div class="product-info__cat" id="product-cat"></div>
+          <h1 class="product-info__name" id="product-name"></h1>
+
+          <div class="product-info__rating">
+            <div id="product-rating"></div>
+            <span class="product-info__reviews" id="product-review-count"></span>
+          </div>
+
+          <div class="product-info__pricing">
+            <span class="product-info__price" id="product-price"></span>
+            <span class="product-info__orig-price" id="product-orig-price" style="display:none"></span>
+            <span class="product-info__savings badge badge-sale" id="product-savings" style="display:none"></span>
+          </div>
+
+          <div class="product-info__desc" id="product-desc"></div>
+
+          <!-- Variants -->
+          <div class="product-info__variants" id="product-variants">
+            <div class="product-info__section-label">Color</div>
+            <div class="variant-options" id="variant-colors"></div>
+          </div>
+
+          <!-- Quantity + ATC -->
+          <div class="product-info__atc">
+            <div class="qty-stepper qty-stepper--lg">
+              <button class="qty-stepper__btn" id="qty-minus">−</button>
+              <div class="qty-stepper__val" id="qty-val">1</div>
+              <button class="qty-stepper__btn" id="qty-plus">+</button>
+            </div>
+            <button class="btn btn-primary btn-lg" id="atc-btn" style="flex:1">Add to Cart</button>
+          </div>
+          <button class="btn btn-outline btn-full" id="wish-btn" style="margin-top:var(--sp-3)">Add to Wishlist</button>
+
+          <!-- Trust signals -->
+          <div class="product-trust">
+            <div class="product-trust__item">
+              <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              <span id="product-delivery">Estimated delivery in 2–5 days</span>
+            </div>
+            <div class="product-trust__item">
+              <svg viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.6"/></svg>
+              <span>30-day hassle-free returns</span>
+            </div>
+            <div class="product-trust__item">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span>1-Year manufacturer warranty</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Tabs: Description / Specs -->
+      <div class="product-tabs">
+        <div class="tab-nav">
+          <button class="tab-btn active" data-tab="overview">Overview</button>
+          <button class="tab-btn" data-tab="specs">Specifications</button>
+          <button class="tab-btn" data-tab="shipping">Shipping & Returns</button>
+        </div>
+
+        <div class="tab-content active" id="tab-overview">
+          <div class="product-overview">
+            <h2>About this product</h2>
+            <p id="tab-desc"></p>
+            <div class="product-features">
+              <div class="product-feature">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Designed and quality-tested by the Lumino team</span>
+              </div>
+              <div class="product-feature">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Certified refund & replacement policy within 30 days</span>
+              </div>
+              <div class="product-feature">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>All packaging is recyclable and responsibly sourced</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="tab-specs">
+          <table class="specs-table">
+            <tbody id="specs-body"></tbody>
+          </table>
+        </div>
+
+        <div class="tab-content" id="tab-shipping">
+          <div class="product-overview">
+            <h2>Shipping</h2>
+            <p>Standard delivery in 3–5 business days. Free shipping on orders above ₹5,000. Express delivery available at checkout for ₹299 — delivers in 1–2 business days.</p>
+            <h2 style="margin-top:var(--sp-8)">Returns</h2>
+            <p>Returns are accepted within 30 days of delivery. Products must be returned in original packaging. Contact our support team to initiate a return — return shipping is covered by Lumino for defective products.</p>
+            <h2 style="margin-top:var(--sp-8)">Warranty</h2>
+            <p>All Lumino products come with a 1-year manufacturer warranty against defects in materials and workmanship. Extended 2-year coverage is available at checkout.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Related Products -->
+    <div class="section" style="border-top:1px solid var(--c-border)">
+      <div class="container">
+        <h2 class="section-title" style="margin-bottom:var(--sp-8)">You May Also Like</h2>
+        <div class="products-grid" id="related-grid"></div>
+      </div>
+    </div>
+  </main>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="footer__logo">LUMINO</div>
-    <div class="footer__copy">2024 Lumino. All rights reserved.</div>
-    <div class="footer__links">
-      <a href="shop.html">Shop</a>
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
+    <div class="container">
+      <div class="footer__main">
+        <div class="footer__brand"><a href="index.html" class="logo"><span class="logo__mark"><svg width="20" height="20" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9.5" stroke="currentColor" stroke-width="1.2"/><circle cx="11" cy="11" r="3" fill="currentColor"/></svg></span><span class="logo__name">Lumino</span></a><p class="footer__brand-desc">Precision electronics for people who care about what they own.</p></div>
+        <div><div class="footer__col-title">Shop</div><div class="footer__links"><a href="shop.html" class="footer__link">All Products</a><a href="collections.html" class="footer__link">Collections</a></div></div>
+        <div><div class="footer__col-title">Company</div><div class="footer__links"><a href="about.html" class="footer__link">About</a></div></div>
+        <div><div class="footer__col-title">Support</div><div class="footer__links"><a href="support.html" class="footer__link">Help Centre</a><a href="support.html" class="footer__link">Returns</a></div></div>
+      </div>
+      <div class="footer__bottom"><div class="footer__copy">© 2024 Lumino Technologies Pvt. Ltd.</div></div>
     </div>
   </footer>
 
+  <div class="toast-container" id="toast-container"></div>
   <script src="app.js"></script>
+  <script>
+    // Sync tab description
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabDesc = document.getElementById('tab-desc');
+      const productDesc = document.getElementById('product-desc');
+      if (tabDesc && productDesc) {
+        setTimeout(() => { tabDesc.textContent = productDesc.textContent; }, 100);
+      }
+    });
+  </script>
 </body>
 </html>

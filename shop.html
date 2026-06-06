@@ -1,108 +1,189 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Browse the full LUMINO catalog — premium audio, wearables, mobile devices, and accessories.">
+  <meta name="description" content="Shop premium electronics at LUMINO — audio, wearables, mobile, and accessories. Filter by category, price, and rating.">
   <title>Shop — LUMINO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script>(function(){const t=localStorage.getItem('lumino-theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;})();</script>
 </head>
-<body class="page-body">
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announce-bar" id="announce-bar">
+    <div class="announce-bar__content">Free shipping on orders above ₹5,000 &nbsp;·&nbsp; 1-Year warranty on all products</div>
+    <button class="announce-bar__close" id="announce-close" aria-label="Dismiss"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  </div>
 
   <!-- Navbar -->
-  <nav class="navbar">
-    <div class="navbar__logo">
-      <a href="index.html">LUMINO</a>
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="navbar__inner">
+        <a href="index.html" class="logo" aria-label="Lumino home">
+          <span class="logo__mark"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9.5" stroke="currentColor" stroke-width="1.2"/><circle cx="11" cy="11" r="3" fill="currentColor"/></svg></span>
+          <span class="logo__name">Lumino</span>
+        </a>
+        <div class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="shop.html" class="nav-link active">Shop</a>
+          <a href="collections.html" class="nav-link">Collections</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="support.html" class="nav-link">Support</a>
+        </div>
+        <div class="nav-actions">
+          <button class="nav-icon-btn" id="search-btn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+          <button class="nav-icon-btn" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span class="nav-badge wishlist-badge"></span></button>
+          <button class="nav-icon-btn" id="cart-btn" aria-label="Cart"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="nav-badge cart-badge"></span></button>
+          <button class="nav-icon-btn" id="theme-toggle" aria-label="Toggle theme"><svg class="icon-sun" viewBox="0 0 24 24" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+          <button class="nav-icon-btn nav-hamburger" id="nav-hamburger" aria-label="Open menu"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobile-nav">
+    <div class="mobile-nav__overlay" id="mobile-nav-overlay"></div>
+    <div class="mobile-nav__panel">
+      <div class="mobile-nav__header"><span class="logo__name">Lumino</span><button class="nav-icon-btn" id="mobile-nav-close"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+      <a href="index.html" class="mobile-nav__link">Home</a>
+      <a href="shop.html" class="mobile-nav__link active">Shop</a>
+      <a href="collections.html" class="mobile-nav__link">Collections</a>
+      <a href="about.html" class="mobile-nav__link">About</a>
+      <a href="support.html" class="mobile-nav__link">Support</a>
+      <div class="mobile-nav__divider"></div>
+      <a href="cart.html" class="mobile-nav__link">Cart</a>
     </div>
-    <div class="navbar__links">
-      <a href="shop.html" class="active">Shop</a>
-      <a href="shop.html">Collections</a>
-      <a href="index.html#about">About</a>
-    </div>
-    <div class="navbar__icons">
-      <button class="navbar__icon" id="search-btn" aria-label="Search">
-        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      </button>
-      <a href="cart.html" class="navbar__icon" aria-label="Cart">
-        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-        <span class="cart-dot"></span>
-      </a>
-    </div>
-  </nav>
+  </div>
 
   <!-- Search Overlay -->
-  <div class="search-overlay" id="search-overlay">
-    <button class="search-overlay__close">CLOSE</button>
-    <div class="search-overlay__inner">
-      <input type="text" class="search-overlay__input" placeholder="Search products...">
-      <div class="search-results"></div>
-    </div>
-  </div>
+  <div class="search-overlay" id="search-overlay"><div class="search-overlay__header"><span class="search-overlay__logo">Lumino</span><div class="search-overlay__input-wrap"><svg class="search-overlay__icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" class="search-overlay__input" id="search-input" placeholder="Search products..." autocomplete="off"></div><button class="btn btn-ghost btn-sm" id="search-close">Close</button></div><div class="search-overlay__body" id="search-results"></div></div>
+
+  <!-- Cart Drawer -->
+  <div class="cart-drawer" id="cart-drawer"><div class="cart-drawer__overlay" id="cart-drawer-overlay"></div><div class="cart-drawer__panel"><div class="cart-drawer__header"><span class="cart-drawer__title">Cart <span class="cart-drawer__count" id="cart-drawer-count">(0)</span></span><button class="nav-icon-btn" id="cart-drawer-close"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div><div class="cart-drawer__body" id="cart-drawer-body"></div><div class="cart-drawer__footer" id="cart-drawer-footer" style="display:none"><div class="cart-drawer__subtotal"><span class="cart-drawer__subtotal-label">Subtotal</span><span class="cart-drawer__subtotal-value" id="cart-drawer-subtotal">₹0</span></div><div id="cart-drawer-ship-msg" class="cart-drawer__ship-msg"></div><a href="cart.html" class="btn btn-outline btn-full">View Cart</a><a href="checkout.html" class="btn btn-primary btn-full">Checkout</a></div></div></div>
 
   <!-- Page Header -->
-  <div class="page-header">
-    <div class="page-header__title">SHOP</div>
+  <div class="page-top">
+    <div class="container">
+      <div class="breadcrumb">
+        <span class="breadcrumb__item"><a href="index.html">Home</a></span>
+        <span class="breadcrumb__sep">/</span>
+        <span class="breadcrumb__item current">Shop</span>
+      </div>
+    </div>
   </div>
 
-  <!-- Shop Layout -->
-  <div class="shop-layout" style="border-bottom: 1px solid var(--border);">
-
-    <!-- Sidebar -->
-    <aside class="shop-sidebar">
-      <div class="shop-sidebar__group">
-        <div class="shop-sidebar__title">Category</div>
-        <div class="shop-sidebar__list">
-          <button class="shop-sidebar__item active" data-category="All">All Products</button>
-          <button class="shop-sidebar__item" data-category="Audio">Audio</button>
-          <button class="shop-sidebar__item" data-category="Wearables">Wearables</button>
-          <button class="shop-sidebar__item" data-category="Mobile">Mobile</button>
-          <button class="shop-sidebar__item" data-category="Accessories">Accessories</button>
-        </div>
-      </div>
-
-      <div class="shop-sidebar__group">
-        <div class="shop-sidebar__title">Price Range</div>
-        <div class="price-range">
-          <input type="range" id="price-range" min="0" max="150000" value="150000" step="1000">
-          <div class="price-range__labels">
-            <span>&#8377;0</span>
-            <span id="price-max">&#8377;1,50,000</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="shop-sidebar__group">
-        <div class="shop-sidebar__title">Sort By</div>
-        <select id="sort-select">
-          <option value="default">Default</option>
-          <option value="price-low">Price: Low to High</option>
-          <option value="price-high">Price: High to Low</option>
-          <option value="name">Name: A to Z</option>
-        </select>
-      </div>
-    </aside>
-
-    <!-- Main Grid -->
-    <div class="shop-main">
-      <div class="shop-main__header">
-        <span class="shop-main__count" id="product-count">12 products</span>
-      </div>
-      <div class="product-grid product-grid--shop" id="shop-grid"></div>
+  <main>
+    <!-- Mobile filter button -->
+    <div class="container" style="padding-top:var(--sp-4);padding-bottom:var(--sp-4);">
+      <button class="btn btn-secondary btn-sm" id="mobile-filter-btn" style="display:none">
+        <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+        Filters
+      </button>
     </div>
 
-  </div>
+    <div class="shop-layout" style="border-top:1px solid var(--c-border);">
+
+      <!-- Sidebar -->
+      <aside class="shop-sidebar" id="shop-sidebar" aria-label="Product filters">
+
+        <div class="shop-sidebar__section">
+          <div class="shop-sidebar__title">Category</div>
+          <div class="shop-sidebar__options">
+            <div class="sidebar-option active" data-cat="All">
+              <span class="sidebar-option__label">All Products</span>
+              <span class="sidebar-option__count">12</span>
+            </div>
+            <div class="sidebar-option" data-cat="Audio">
+              <span class="sidebar-option__label">Audio</span>
+              <span class="sidebar-option__count">4</span>
+            </div>
+            <div class="sidebar-option" data-cat="Wearables">
+              <span class="sidebar-option__label">Wearables</span>
+              <span class="sidebar-option__count">2</span>
+            </div>
+            <div class="sidebar-option" data-cat="Mobile">
+              <span class="sidebar-option__label">Mobile</span>
+              <span class="sidebar-option__count">2</span>
+            </div>
+            <div class="sidebar-option" data-cat="Accessories">
+              <span class="sidebar-option__label">Accessories</span>
+              <span class="sidebar-option__count">4</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="shop-sidebar__section">
+          <div class="shop-sidebar__title">Price Range</div>
+          <div class="sidebar-price">
+            <input type="range" id="price-slider" min="3000" max="135000" value="135000" step="1000">
+            <div class="sidebar-price__labels">
+              <span>₹3,000</span>
+              <span id="price-max-label">₹1,35,000</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="shop-sidebar__section">
+          <div class="shop-sidebar__title">Sort By</div>
+          <select class="select" id="sort-select">
+            <option value="default">Featured</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="rating">Top Rated</option>
+            <option value="name">Name: A–Z</option>
+          </select>
+        </div>
+
+      </aside>
+
+      <!-- Main Grid -->
+      <div class="shop-main">
+        <div class="shop-toolbar">
+          <span class="shop-results-count" id="shop-count">12 products</span>
+          <div class="shop-toolbar-right">
+            <select class="select" id="sort-select" style="width:auto;min-width:160px;" aria-label="Sort products">
+              <option value="default">Featured</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="rating">Top Rated</option>
+              <option value="name">Name: A–Z</option>
+            </select>
+          </div>
+        </div>
+        <div class="shop-grid" id="shop-grid"></div>
+      </div>
+
+    </div>
+  </main>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="footer__logo">LUMINO</div>
-    <div class="footer__copy">2024 Lumino. All rights reserved.</div>
-    <div class="footer__links">
-      <a href="shop.html">Shop</a>
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
+    <div class="container">
+      <div class="footer__main">
+        <div class="footer__brand">
+          <a href="index.html" class="logo"><span class="logo__mark"><svg width="20" height="20" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9.5" stroke="currentColor" stroke-width="1.2"/><circle cx="11" cy="11" r="3" fill="currentColor"/></svg></span><span class="logo__name">Lumino</span></a>
+          <p class="footer__brand-desc">Precision electronics for people who care about what they own.</p>
+        </div>
+        <div><div class="footer__col-title">Shop</div><div class="footer__links"><a href="shop.html" class="footer__link">All Products</a><a href="collections.html" class="footer__link">Collections</a></div></div>
+        <div><div class="footer__col-title">Company</div><div class="footer__links"><a href="about.html" class="footer__link">About</a><a href="#" class="footer__link">Careers</a></div></div>
+        <div><div class="footer__col-title">Support</div><div class="footer__links"><a href="support.html" class="footer__link">Help Centre</a><a href="support.html" class="footer__link">Returns</a></div></div>
+      </div>
+      <div class="footer__bottom"><div class="footer__copy">© 2024 Lumino Technologies Pvt. Ltd.</div><div class="footer__policy-links"><a href="#" class="footer__policy-link">Privacy</a><a href="#" class="footer__policy-link">Terms</a></div></div>
     </div>
   </footer>
 
+  <div class="toast-container" id="toast-container"></div>
   <script src="app.js"></script>
+  <script>
+    // Show mobile filter button on small screens
+    if (window.innerWidth <= 768) {
+      document.getElementById('mobile-filter-btn').style.display = 'flex';
+    }
+  </script>
 </body>
 </html>
