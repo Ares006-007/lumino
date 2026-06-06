@@ -698,6 +698,34 @@ function attachCardListeners(container) {
       btn.classList.toggle('active', isNowWished);
     });
   });
+
+  init3DTilt(container);
+}
+
+function init3DTilt(container) {
+  container.querySelectorAll('.product-card, .collection-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const rotateX = ((y - centerY) / centerY) * -4; // max 4deg
+      const rotateY = ((x - centerX) / centerX) * 4;  // max 4deg
+      
+      card.style.transform = `perspective(1000px) translateY(-5px) scale(1.02) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      card.style.transition = 'none';
+      card.style.zIndex = '10';
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+      card.style.transition = 'transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease';
+      card.style.zIndex = '1';
+    });
+  });
 }
 
 /* ============================================================
@@ -740,6 +768,8 @@ function initHomepage() {
       form.innerHTML = '<p style="font-size:14px;color:var(--c-success);font-weight:500">Thank you for subscribing.</p>';
     }
   });
+
+  init3DTilt(document.body);
 }
 
 /* ============================================================
