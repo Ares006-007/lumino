@@ -287,8 +287,7 @@ function renderStars(rating) {
    ============================================================ */
 
 function getTheme() {
-  return localStorage.getItem('lumino-theme') ||
-    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  return localStorage.getItem('lumino-theme') || 'light';
 }
 
 function setTheme(theme) {
@@ -1171,8 +1170,7 @@ function initCollections() {
 
 // Inline theme before DOM loads (prevent flash)
 (function() {
-  const t = localStorage.getItem('lumino-theme') ||
-    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  const t = localStorage.getItem('lumino-theme') || 'light';
   document.documentElement.dataset.theme = t;
 })();
 
