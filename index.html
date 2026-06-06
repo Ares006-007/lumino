@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LUMINO — Premium electronics and gadgets. Curated selection of audio, wearables, mobile devices, and accessories.">
+  <title>LUMINO — Premium Electronics</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-body">
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar__logo">
+      <a href="index.html">LUMINO</a>
+    </div>
+    <div class="navbar__links">
+      <a href="shop.html">Shop</a>
+      <a href="shop.html">Collections</a>
+      <a href="#about">About</a>
+    </div>
+    <div class="navbar__icons">
+      <button class="navbar__icon" id="search-btn" aria-label="Search">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <a href="cart.html" class="navbar__icon" aria-label="Cart">
+        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cart-dot" id="cart-dot"></span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay" id="search-overlay">
+    <button class="search-overlay__close">CLOSE</button>
+    <div class="search-overlay__inner">
+      <input type="text" class="search-overlay__input" placeholder="Search products...">
+      <div class="search-results"></div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero__eyebrow">PREMIUM ELECTRONICS — EST. 2024</div>
+    <h1 class="hero__headline">Precision-crafted technology for those who <strong>demand excellence</strong></h1>
+    <p class="hero__desc">A curated selection of audio, wearables, and devices — each chosen for build quality, performance, and design restraint.</p>
+    <div class="hero__actions">
+      <a href="shop.html" class="btn-gold">SHOP NOW</a>
+      <a href="shop.html" class="btn-ghost">VIEW COLLECTIONS &rarr;</a>
+    </div>
+    <div class="hero__metrics">
+      <div class="hero__metric">
+        <div class="hero__metric-value">500+</div>
+        <div class="hero__metric-label">Products</div>
+      </div>
+      <div class="hero__metric">
+        <div class="hero__metric-value">50K</div>
+        <div class="hero__metric-label">Customers</div>
+      </div>
+      <div class="hero__metric">
+        <div class="hero__metric-value">4.9/5</div>
+        <div class="hero__metric-label">Rating</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="section" id="featured">
+    <div class="section-label" style="margin-bottom: 24px;">FEATURED PRODUCTS</div>
+    <div class="filter-row">
+      <button class="filter-btn active" data-category="ALL">All</button>
+      <button class="filter-btn" data-category="Audio">Audio</button>
+      <button class="filter-btn" data-category="Wearables">Wearables</button>
+      <button class="filter-btn" data-category="Mobile">Mobile</button>
+      <button class="filter-btn" data-category="Accessories">Accessories</button>
+    </div>
+    <div class="product-grid" id="featured-grid"></div>
+  </section>
+
+  <!-- Promise Strip -->
+  <div class="promise-strip">
+    <div class="promise-cell">
+      <div class="promise-cell__label">Delivery</div>
+      <div class="promise-cell__text">Express shipping on all orders, with real-time tracking from warehouse to doorstep.</div>
+    </div>
+    <div class="promise-cell">
+      <div class="promise-cell__label">Returns</div>
+      <div class="promise-cell__text">30-day hassle-free returns with no questions asked. We cover return shipping.</div>
+    </div>
+    <div class="promise-cell">
+      <div class="promise-cell__label">Warranty</div>
+      <div class="promise-cell__text">Every product includes a minimum 1-year manufacturer warranty, extendable at checkout.</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer" id="about">
+    <div class="footer__logo">LUMINO</div>
+    <div class="footer__copy">2024 Lumino. All rights reserved.</div>
+    <div class="footer__links">
+      <a href="shop.html">Shop</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

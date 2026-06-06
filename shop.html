@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse the full LUMINO catalog — premium audio, wearables, mobile devices, and accessories.">
+  <title>Shop — LUMINO</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-body">
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar__logo">
+      <a href="index.html">LUMINO</a>
+    </div>
+    <div class="navbar__links">
+      <a href="shop.html" class="active">Shop</a>
+      <a href="shop.html">Collections</a>
+      <a href="index.html#about">About</a>
+    </div>
+    <div class="navbar__icons">
+      <button class="navbar__icon" id="search-btn" aria-label="Search">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <a href="cart.html" class="navbar__icon" aria-label="Cart">
+        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cart-dot"></span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay" id="search-overlay">
+    <button class="search-overlay__close">CLOSE</button>
+    <div class="search-overlay__inner">
+      <input type="text" class="search-overlay__input" placeholder="Search products...">
+      <div class="search-results"></div>
+    </div>
+  </div>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="page-header__title">SHOP</div>
+  </div>
+
+  <!-- Shop Layout -->
+  <div class="shop-layout" style="border-bottom: 1px solid var(--border);">
+
+    <!-- Sidebar -->
+    <aside class="shop-sidebar">
+      <div class="shop-sidebar__group">
+        <div class="shop-sidebar__title">Category</div>
+        <div class="shop-sidebar__list">
+          <button class="shop-sidebar__item active" data-category="All">All Products</button>
+          <button class="shop-sidebar__item" data-category="Audio">Audio</button>
+          <button class="shop-sidebar__item" data-category="Wearables">Wearables</button>
+          <button class="shop-sidebar__item" data-category="Mobile">Mobile</button>
+          <button class="shop-sidebar__item" data-category="Accessories">Accessories</button>
+        </div>
+      </div>
+
+      <div class="shop-sidebar__group">
+        <div class="shop-sidebar__title">Price Range</div>
+        <div class="price-range">
+          <input type="range" id="price-range" min="0" max="150000" value="150000" step="1000">
+          <div class="price-range__labels">
+            <span>&#8377;0</span>
+            <span id="price-max">&#8377;1,50,000</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="shop-sidebar__group">
+        <div class="shop-sidebar__title">Sort By</div>
+        <select id="sort-select">
+          <option value="default">Default</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="name">Name: A to Z</option>
+        </select>
+      </div>
+    </aside>
+
+    <!-- Main Grid -->
+    <div class="shop-main">
+      <div class="shop-main__header">
+        <span class="shop-main__count" id="product-count">12 products</span>
+      </div>
+      <div class="product-grid product-grid--shop" id="shop-grid"></div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__logo">LUMINO</div>
+    <div class="footer__copy">2024 Lumino. All rights reserved.</div>
+    <div class="footer__links">
+      <a href="shop.html">Shop</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
