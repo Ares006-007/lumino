@@ -1195,6 +1195,50 @@ function initCollections() {
 }
 
 /* ============================================================
+   GLOBAL 3D EFFECTS
+   ============================================================ */
+
+function initGlobal3D() {
+  const main = document.querySelector('main');
+  if (!main) return;
+
+  // 1. Mouse Parallax Diorama
+  window.addEventListener('mousemove', e => {
+    if (window.matchMedia('(hover: none)').matches) return; // Skip on mobile
+    const x = (e.clientX / window.innerWidth) * 2 - 1;
+    const y = (e.clientY / window.innerHeight) * 2 - 1;
+    const rotateX = y * -2.5;
+    const rotateY = x * 2.5;
+    main.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  });
+
+  // 2. Scroll Z-Depth
+  const sections = document.querySelectorAll('section');
+  sections.forEach(sec => {
+    sec.style.transformStyle = 'preserve-3d';
+    sec.style.willChange = 'transform';
+  });
+  
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        sections.forEach(sec => {
+          const rect = sec.getBoundingClientRect();
+          const centerLine = window.innerHeight / 2;
+          const dist = Math.abs(rect.top + rect.height / 2 - centerLine);
+          // Push further away from center down the Z-axis
+          const zPush = Math.min(dist * -0.05, 0);
+          sec.style.transform = `translateZ(${zPush}px)`;
+        });
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+}
+
+/* ============================================================
    INIT
    ============================================================ */
 
@@ -1212,6 +1256,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCartDrawer();
   updateCartBadge();
   updateWishlistBadge();
+  initGlobal3D();
 
   const path = window.location.pathname;
   const page = path.split('/').pop() || 'index.html';
